@@ -23,11 +23,21 @@ exit;
 #download nextclod
 wget https://download.nextcloud.com/server/releases/latest.zip
 sudo unzip nextcloud-21.0.1.zip -d /var/www/html/
+sudo rm nexcloud
 sudo chown -R www-data:www-data /var/www/html/nextcloud
 sudo chmod -R 775 /var/www/html/nextcloud
 #move to correct directory
 sudo vim /etc/apache2/sites-available/nextcloud.conf
 sudo a2ensite nextcloud.conf
-#change permissions
-
+sudo systemctl reload apache2
 #add trusted domains
+echo "DO you want to acces you nexcloud by an domain? (Y|n)"
+# set up removal script
+sudo mv remove.sh /
+sudo chmod +x /remove.sh
+#finish
+echo "Nexcloud is insalled and running"
+echo "visit http://$server_ip to configure nexcloud"
+echo "execute the following command to free up space"
+echo "sh /remove.sh"
+
