@@ -8,6 +8,10 @@ echo"please provide me the details for the mysql installation"
 sudo apt install apache2 libapache2-mod-php php mariadb-server -y
 sudo apt install php-gd php-mysql php-curl php-json php-gmp php-bcmath php-xml php-mbstring php-intl php-imagick php-zip bzip2 -y
 
+#configur php
+sudo nano /etc/php/7.4/apache2/php.ini
+change to memory_limit = 512M
+sudo systemctl restart apache2
 #download nextclod
 
 #move to correct directory
