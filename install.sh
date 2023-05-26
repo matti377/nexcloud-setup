@@ -1,5 +1,7 @@
 echo "This script will set up nextcloud with Apache2 and mysql"
 echo "To start please provide some details"
+
+echo "What is the ip adress of your server"
 #ask for credentials for mysql
 echo "this script will install and configure Mysql"
 echo"please provide me the details for the mysql installation"
@@ -32,12 +34,15 @@ sudo a2ensite nextcloud.conf
 sudo systemctl reload apache2
 #add trusted domains
 echo "DO you want to acces you nexcloud by an domain? (Y|n)"
-# set up removal script
-sudo mv remove.sh /
-sudo chmod +x /remove.sh
+# clean up
+sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove -y
+sudo apt-get clean -y
 #finish
 echo "Nexcloud is insalled and running"
+echo "vour database name is nextcloud"
+echo "vour database username is nextcloud"
+echo "vour database password is nextcloud"
 echo "visit http://$server_ip to configure nexcloud"
-echo "execute the following command to free up space"
-echo "sh /remove.sh"
 
