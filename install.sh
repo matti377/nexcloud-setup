@@ -31,6 +31,7 @@ sudo chmod -R 775 /var/www/html/nextcloud
 #move to correct directory
 sudo vim /etc/apache2/sites-available/nextcloud.conf
 sudo a2ensite nextcloud.conf
+sudo a2enmod rewrite headers dir mime env setenvif ssl
 sudo systemctl reload apache2
 #add trusted domains
 echo "DO you want to acces you nexcloud by an domain? (Y|n)"
